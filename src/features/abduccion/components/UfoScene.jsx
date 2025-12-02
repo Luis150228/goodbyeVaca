@@ -44,45 +44,47 @@ export default function UfoScene({ wrongCount, maxErrors, status }) {
 			/>
 
 			{/* OVNI */}
-			<div className='absolute top-4 flex flex-col items-center z-10'>
-				<img
-					src={ufoSvg}
-					alt='OVNI'
-					className={`
+			<div className='absolute top-4 z-10 animate-[fly-in-top-right_1s_ease-out_forwards]'>
+				<div className='flex flex-col items-center animate-[wobble-float_6s_ease-in-out_infinite]'>
+					<img
+						src={ufoSvg}
+						alt='OVNI'
+						className={`
             w-40
             drop-shadow-[0_0_25px_rgba(34,197,94,0.8)]
             transition-transform duration-300
-            ${stage !== 'off' ? 'translate-y-1 animate-pulse' : ''}
+            ${stage !== 'off' ? 'translate-y-1 animate-[pulse-subtle_2s_ease-in-out_infinite]' : ''}
           `}
-				/>
+					/>
 
-				{/* Rayo */}
-				<div
-					className={`
+					{/* Rayo */}
+					<div
+						className={`
             relative w-28 mt-2 origin-top
             transition-all duration-300
             ${stage === 'off' ? 'h-0 opacity-0' : 'opacity-100'}
           `}
-					style={{
-						height:
-							stage === 'dim'
-								? '40px'
-								: stage === 'lower-legs'
-								? '80px'
-								: stage === 'waist'
-								? '120px'
-								: stage === 'chest'
-								? '150px'
-								: '190px',
-					}}>
-					<div
-						className='
+						style={{
+							height:
+								stage === 'dim'
+									? '40px'
+									: stage === 'lower-legs'
+									? '80px'
+									: stage === 'waist'
+									? '120px'
+									: stage === 'chest'
+									? '150px'
+									: '190px',
+						}}>
+						<div
+							className='
               absolute inset-0
               bg-gradient-to-b
               from-lime-300/80 via-lime-400/50 to-emerald-500/0
               blur-sm rounded-b-full
             '
-					/>
+						/>
+					</div>
 				</div>
 			</div>
 

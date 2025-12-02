@@ -66,6 +66,46 @@
   }
 }
 
+@keyframes wobble-float {
+
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  33% {
+    transform: translateY(-4px) rotate(-1deg);
+  }
+
+  66% {
+    transform: translateY(-2px) rotate(1deg);
+  }
+}
+
+@keyframes pulse-subtle {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: .85;
+  }
+}
+
+@keyframes fly-in-top-right {
+  0% {
+    opacity: 0;
+    transform: translate(100%, -100%) scale(0.5);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+}
+
 /* =========================
    BASE
    ========================= */
