@@ -45,6 +45,8 @@ export default function GameScreen({ game, players, onRestart }) {
 						currentPlayerIndex={currentPlayerIndex}
 						status={status}
 						onGuessWholeWord={handleGuessWholeWord}
+						wrongGuesses={wrongGuesses.length}
+						maxErrors={maxErrors}
 					/>
 				</header>
 
