@@ -106,6 +106,42 @@
   }
 }
 
+@keyframes abduct-cow {
+  0% {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(0) translateY(-100px);
+    opacity: 0;
+  }
+}
+
+@keyframes celebrate-cow {
+
+  0%,
+  100% {
+    transform: scale(1.2);
+  }
+
+  50% {
+    transform: scale(1.4);
+  }
+}
+
+@keyframes fly-away-top-left {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate(-100vw, -100vh) scale(0.5);
+    opacity: 0;
+  }
+}
+
 /* =========================
    BASE
    ========================= */

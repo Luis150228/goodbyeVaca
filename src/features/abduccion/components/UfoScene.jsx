@@ -6,7 +6,8 @@ import moonSvg from '../../../assets/moon.svg';
 import { RAY_STAGES } from '../constants';
 
 export default function UfoScene({ wrongCount, maxErrors, status }) {
-	const isGameOver = status === 'lost';
+	const isLost = status === 'lost';
+	const isWon = status === 'won';
 
 	const safeMax = Math.max(1, maxErrors || RAY_STAGES.length - 1);
 	const clampedWrong = Math.max(0, Math.min(wrongCount, safeMax));
@@ -14,6 +15,20 @@ export default function UfoScene({ wrongCount, maxErrors, status }) {
 
 	const stageIndex = Math.round(progress * (RAY_STAGES.length - 1));
 	const stage = RAY_STAGES[stageIndex];
+
+	// Animación del OVNI
+	let ufoAnimationClass = 'animate-[fly-in-top-right_1s_ease-out_forwards]';
+	if (isLost || isWon) {
+		ufoAnimationClass = 'animate-[fly-away-top-left_1.5s_ease-in_forwards]';
+	}
+
+	// Animación de la Vaca
+	let cowAnimationClass = '';
+	if (isLost) {
+		cowAnimationClass = 'animate-[abduct-cow_1s_ease-in_forwards]';
+	} else if (isWon) {
+		cowAnimationClass = 'animate-[celebrate-cow_1s_ease-in-out_infinite]';
+	}
 
 	return (
 		<div className='relative w-full max-w-4xl h-72 flex items-end justify-center'>
@@ -44,7 +59,7 @@ export default function UfoScene({ wrongCount, maxErrors, status }) {
 			/>
 
 			{/* OVNI */}
-			<div className='absolute top-4 z-10 animate-[fly-in-top-right_1s_ease-out_forwards]'>
+			<div className={`absolute top-4 z-10 ${ufoAnimationClass}`}>
 				<div className='flex flex-col items-center animate-[wobble-float_6s_ease-in-out_infinite]'>
 					<img
 						src={ufoSvg}
@@ -111,7 +126,7 @@ export default function UfoScene({ wrongCount, maxErrors, status }) {
 					className={`
             w-28
             drop-shadow-[0_0_15px_rgba(15,23,42,0.8)]
-            ${isGameOver ? 'animate-bounce' : ''}
+            ${cowAnimationClass}
           `}
 				/>
 			</div>

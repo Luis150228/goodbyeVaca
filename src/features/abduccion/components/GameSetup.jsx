@@ -1,10 +1,12 @@
-// src/features/abduccion/components/GameSetup.jsx
+import { useState } from 'react';
 import Card from '../../../shared/components/Card';
 import NeonButton from '../../../shared/components/NeonButton';
+import HowToPlayModal from './HowToPlayModal';
 import { TOPICS, DIFFICULTIES } from '../../../data/wordLists';
 import { DIFFICULTY_CONFIG } from '../constants';
 
 export default function GameSetup({ config, onChangeConfig, onStart }) {
+	const [isHowToPlayOpen, setIsHowToPlayOpen] = useState(false);
 	const currentDiff = DIFFICULTY_CONFIG[config.difficulty];
 
 	const topicButtons = [
@@ -89,7 +91,19 @@ export default function GameSetup({ config, onChangeConfig, onStart }) {
 					</div>
 				</div>
 
-				<div className='mt-6 flex justify-end'>
+				<div className='mt-6 flex justify-end gap-4'>
+					<button
+						type='button'
+						onClick={() => setIsHowToPlayOpen(true)}
+						className='
+              px-6 py-2 rounded-2xl font-semibold text-sm uppercase tracking-wide
+              text-slate-400 border border-slate-600
+              hover:bg-slate-800 hover:text-white hover:border-slate-400
+              transition-colors
+            '>
+						Cómo jugar
+					</button>
+
 					<NeonButton
 						color='pink'
 						onClick={onStart}>
@@ -97,6 +111,11 @@ export default function GameSetup({ config, onChangeConfig, onStart }) {
 					</NeonButton>
 				</div>
 			</Card>
+
+			<HowToPlayModal
+				open={isHowToPlayOpen}
+				onClose={() => setIsHowToPlayOpen(false)}
+			/>
 		</div>
 	);
 }
