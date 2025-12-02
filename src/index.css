@@ -1,0 +1,94 @@
+@import "tailwindcss";
+
+/* =========================
+   THEME (Tailwind 4.1)
+   ========================= */
+@theme {
+  --color-neon-green: #a3ff5f;
+  --color-neon-cyan: #4bf2ff;
+  --color-neon-pink: #ff6bd5;
+
+  /* Fondo espacio 3 tonos:
+     top:    #1E2344
+     middle: #5D308B
+     bottom: #1D1F3F
+  */
+  --color-bg-space-top: #1e2344;
+  --color-bg-space-middle: #5d308b;
+  --color-bg-space-bottom: #1d1f3f;
+}
+
+/* =========================
+   ANIMACIONES
+   ========================= */
+@keyframes twinkle {
+  0% {
+    opacity: .3;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+
+  100% {
+    opacity: .3;
+    transform: scale(1);
+  }
+}
+
+@keyframes twinkle2 {
+  0% {
+    opacity: .15;
+  }
+
+  50% {
+    opacity: .7;
+  }
+
+  100% {
+    opacity: .15;
+  }
+}
+
+@keyframes twinkle3 {
+  0% {
+    opacity: .1;
+  }
+
+  50% {
+    opacity: .5;
+  }
+
+  100% {
+    opacity: .1;
+  }
+}
+
+/* =========================
+   BASE
+   ========================= */
+@layer base {
+  body {
+    @apply bg-slate-950 text-slate-50;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+      sans-serif;
+    overflow-x: hidden;
+  }
+}
+
+/* =========================
+   UTILITIES
+   ========================= */
+@layer utilities {
+
+  /* fondo degradado */
+  .bg-space-gradient {
+    background-image: linear-gradient(to bottom,
+        var(--color-bg-space-top) 0%,
+        var(--color-bg-space-middle) 40%,
+        var(--color-bg-space-bottom) 100%);
+  }
+
+}
