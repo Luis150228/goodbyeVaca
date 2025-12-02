@@ -122,9 +122,9 @@ export default function UfoScene({ wrongCount, maxErrors, status }) {
 				}}>
 				<img
 					src={cowSvg}
-					alt='vaca aburrida'
+					alt='vaca feliz'
 					className={`
-            w-28
+            w-[7rem]
             drop-shadow-[0_0_15px_rgba(15,23,42,0.8)]
             ${cowAnimationClass}
           `}

@@ -38,7 +38,7 @@ function App() {
 	const [config, setConfig] = useState(initialConfig);
 
 	// 🔹 Players con victorias persistentes (localStorage) a partir de PLAYERS
-	const { players, addWin } = usePlayers(PLAYERS);
+	const { players, addWin, updatePlayerName } = usePlayers(PLAYERS);
 
 	// 🔹 Lógica del juego usando los players actuales (incluye wins)
 	const game = useGameLogic(players, config);
@@ -81,6 +81,8 @@ function App() {
 					config={config}
 					onChangeConfig={handleChangeConfig}
 					onStart={handleStartGame}
+					players={players}
+					onUpdatePlayerName={updatePlayerName}
 				/>
 			)}
 

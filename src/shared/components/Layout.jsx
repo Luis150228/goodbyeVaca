@@ -22,6 +22,9 @@ export default function Layout({ children }) {
 			</div>
 
 			<div className='relative w-full max-w-6xl mx-auto px-4 py-6 z-10'>{children}</div>
+			<footer className='absolute bottom-2 w-full text-center text-xs text-slate-500/50 z-20 pointer-events-none font-mono tracking-widest'>
+				created by Rangel Diaz
+			</footer>
 		</div>
 	);
 }

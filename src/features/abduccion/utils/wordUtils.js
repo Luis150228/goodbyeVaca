@@ -12,7 +12,9 @@ export function normalizeLetter(str) {
 		.toString()
 		.toLowerCase()
 		.normalize('NFD')
-		.replace(/[\u0300-\u036f]/g, '');
+		// Eliminamos diacríticos EXCEPTO la virgulilla (~) que es \u0303
+		.replace(/[\u0300-\u0302\u0304-\u036f]/g, '')
+		.normalize('NFC');
 }
 
 /**

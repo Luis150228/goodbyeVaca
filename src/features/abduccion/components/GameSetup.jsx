@@ -5,7 +5,7 @@ import HowToPlayModal from './HowToPlayModal';
 import { TOPICS, DIFFICULTIES } from '../../../data/wordLists';
 import { DIFFICULTY_CONFIG } from '../constants';
 
-export default function GameSetup({ config, onChangeConfig, onStart }) {
+export default function GameSetup({ config, onChangeConfig, onStart, players, onUpdatePlayerName }) {
 	const [isHowToPlayOpen, setIsHowToPlayOpen] = useState(false);
 	const currentDiff = DIFFICULTY_CONFIG[config.difficulty];
 
@@ -25,6 +25,29 @@ export default function GameSetup({ config, onChangeConfig, onStart }) {
 		<div className='flex items-center justify-center'>
 			<Card className='w-full max-w-3xl bg-slate-900/80'>
 				<h1 className='mb-6 text-center text-3xl font-extrabold tracking-wide text-neon-cyan'>SELECCIÓN DE PARTIDA</h1>
+
+				{/* Nombres de jugadores */}
+				<div className='mb-8 grid grid-cols-1 gap-4 sm:grid-cols-2'>
+					{players?.map((p) => (
+						<div key={p.id} className='flex flex-col gap-1'>
+							<label className='text-xs font-bold text-slate-400 uppercase tracking-wider ml-1'>
+								{p.label}
+							</label>
+							<input
+								type='text'
+								value={p.name}
+								onChange={(e) => onUpdatePlayerName(p.id, e.target.value)}
+								className='
+                  w-full px-3 py-2 rounded-xl
+                  bg-slate-800/50 border border-slate-600 text-white
+                  focus:outline-none focus:border-neon-cyan focus:ring-1 focus:ring-neon-cyan
+                  transition-all
+                '
+								placeholder={`Nombre ${p.label}`}
+							/>
+						</div>
+					))}
+				</div>
 
 				<div className='grid grid-cols-1 gap-6 md:grid-cols-2'>
 					{/* Tema de palabras */}

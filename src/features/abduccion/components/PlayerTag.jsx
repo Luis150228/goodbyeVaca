@@ -27,7 +27,7 @@ export default function PlayerTag({ player, isActive, align = 'left', canGuessWo
 			/>
 			<div className='text-sm leading-tight'>
 				<div className='font-bold tracking-wide'>
-					{player.label} {/* "JUGADOR 1" */}
+					{player.name}
 				</div>
 				<div className='text-xs text-slate-300'>
 					{wins} victoria{wins === 1 ? '' : 's'}

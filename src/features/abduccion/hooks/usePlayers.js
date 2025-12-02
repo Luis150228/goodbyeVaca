@@ -51,9 +51,14 @@ export function usePlayers(initialPlayers) {
 		setPlayers((prev) => prev.map((p) => ({ ...p, wins: 0 })));
 	}
 
+	function updatePlayerName(playerId, newName) {
+		setPlayers((prev) => prev.map((p) => (p.id === playerId ? { ...p, name: newName } : p)));
+	}
+
 	return {
 		players,
 		addWin,
 		resetWins,
+		updatePlayerName,
 	};
 }
